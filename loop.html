@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--fullpage.css并不是必须的，设置了一些默认让样式-->
+		<link rel="stylesheet" type="text/css" href="lib/jquery.fullpage.css"/>
+		<script src="lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/jquery.fullpage.js" type="text/javascript" charset="utf-8"></script>
+		<!--jQuery-ui不是必须的   另外两个是必须的-->
+		<script src="lib/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body{
+				position: relative;
+			}
+			/*#menu{
+				position: fixed;
+				top: 20px;
+			}*/
+			
+		</style>
+		
+		<script type="text/javascript">
+			$(document).ready(function  () {
+				$(".fullpage").fullpage({
+					sectionsColor:["red","green","blue"],
+					//滚动顶部可以循环
+					loopTop:true,
+					//滚到底部可以循环
+					loopBottom:true,
+					
+					anchors:["firstpage","secondpage","thirdpage"],
+					//菜单
+					menu:"#menu",
+					//导航
+					navigation:true,
+					//导航的提示
+					navigationTooltips:["首页","产品","介绍"],
+					//横向的导航
+					slidesNavigation:true
+				})
+			})
+			
+			
+			
+		</script>
+	
+	</head>
+	<body>
+		<ul id="menu">
+			<!--data-menuanchor 默认指向相应的屏-->
+			<li data-menuanchor="firstpage" class="active">
+				<a href="#firstpage">first</a>
+			</li>
+			<li data-menuanchor="secondpage">
+				<a href="#secondpage">second</a>
+			</li>
+			<li data-menuanchor="thirdpage">
+				<a href="#thirdpage">third</a>
+			</li>
+		</ul>
+		
+		<div class="fullpage">
+			<div class="section">
+				<h1>第一页Lorem ipsum dolor sit amet, consectetur.</h1>
+			</div>
+			<div class="section">
+				<div class="slide"><h1>第二页第一屏Lorem ipsum dolor sit amet.</h1></div>
+				<div class="slide"><h1>第二页第二屏Lorem ipsum dolor sit amet, consectetur.</h1></div>
+			</div>
+			<div class="section">
+				<h1>第三页Lorem ipsum dolor sit amet, consectetur.</h1>
+			</div>
+			
+		</div>
+		
+		
+	</body>
+</html>

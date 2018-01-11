@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>fullpage全屏滚动插件</title>
+		<!--fullpage.css并不是必须的，设置了一些默认让样式-->
+		<link rel="stylesheet" type="text/css" href="lib/jquery.fullpage.css"/>
+		<script src="lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/jquery.fullpage.js" type="text/javascript" charset="utf-8"></script>
+		<!--jQuery-ui不是必须的   另外两个是必须的-->
+		<script src="lib/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.section{
+				text-align: center;
+				font-size: 50px;
+				font-family: "黑体";
+				/*color:#fff;*/
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				$(".container").fullpage({
+					//设置配置参数
+					//每一屏的颜色
+					sectionsColor:["#1bb349","#4bb590","#eed124"]
+				});
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<!--fullpage是一个基于jQuery的全屏滚动插件，它能够很方便去制作全屏网站-->
+		<!--
+			主要功能：
+			1.支持鼠标滚动
+			2.支持前进后退和键盘控制
+			3.支持多个回调函数
+			4.支持手机平板的触摸事件
+			5.支持css3的动画
+			6.支持窗口的缩放
+			7.支持响应式的调整
+			8.可设置滚动宽度、背景颜色、滚动速度、循环....
+		-->
+		<div class="container">
+			<!--section   fullpage提供的一个类名    代表一屏-->
+			<div class="section">
+				<h3>第一屏</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus dolor quisquam repellendus ab quis quas commodi fuga dolorum voluptate maiores explicabo ex at iure sit.</p>
+			</div>
+			<div class="section">
+				<!--<h3>第二屏</h3>-->
+				<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sit.</p>-->
+				<!--slide 代表横着一屏-->
+				<div class="slide">第二屏幕第一屏</div>
+				<div class="slide">第二屏幕第二屏</div>
+				<div class="slide">第二屏幕第三屏</div>
+			</div>
+			<div class="section">
+				<h3>第三屏</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

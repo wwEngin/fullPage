@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>background-fullpage.html</title>
+		<!--fullpage.css并不是必须的，设置了一些默认让样式-->
+		<link rel="stylesheet" type="text/css" href="lib/jquery.fullpage.css"/>
+		<script src="lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/jquery.fullpage.js" type="text/javascript" charset="utf-8"></script>
+		<!--jQuery-ui不是必须的   另外两个是必须的-->
+		<script src="lib/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.section{
+				background-size: cover;
+				/*background-attachment  规定背景图片是否随着页面滚动*/
+				background-attachment: fixed;
+			}
+			.fullpage{
+				text-align: center;
+			}
+			.slide{
+				background-size: cover;
+			}
+			/*#section0{
+				background-image: url(img/bg1.jpg);
+			}*/
+			#section1{
+				background-image: url(img/bg2.jpg);
+			}
+			#section2{
+				background-image: url(img/bg3.jpg);
+			}
+			.section h1{
+				color: #333333;
+			}
+			#slide1{
+				background-image: url(img/bg2.jpg);
+			}
+			#slide1{
+				background-image: url(img/bg5.jpg);
+			}
+			#myVideo{
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-size: 100% 100%;
+				background-color: black;
+				/*object-fit 百分百显示
+				 * 这个属性主要适用<img>和<video>,一直存在长宽比的控制问题
+				 * 替换元素内容大小保持的长宽比的元素容器，然后进行覆盖
+				 */
+				object-fit: cover;
+				/*float z-index无效   你级position:relative   控制定位层级等级
+				    数值越大，越在上面
+				 * */
+				z-index: 3;
+			}
+			.layer{
+				position:absolute;
+				width: 100%;
+				left: 0;
+				top: 40%;
+				z-index:4;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			$(document).ready(function  () {
+				$(".fullpage").fullpage({
+					//是否垂直居中
+//					verticalCentered:false
+					css3:false
+					
+					//回调的方法   滚动到某页调用
+//					afterload:function({
+//						
+//					})
+					//页面初始化的时候回调方法（页面结构生成的时候调用这个方法）
+					afterRender:function({
+						//播放视频
+						$("#myVideo").eq(0).play;
+					})
+					
+				})
+			})
+			
+			
+			
+		</script>
+	
+	</head>
+	<body>
+		
+		<div class="fullpage">
+			<div class="section" id="section0">
+				<video autoplay="autoplay" id="myVideo">
+					<source src="img/flowers.mp4" style="video/mp4"></source>
+					<source src="img/flowers.webm" style="video/webm"></source>
+				</video>
+				<div class="layer">
+					<h1>第一屏视频播放</h1>
+					
+				</div>
+			</div>
+			<div class="section" id="section1">
+				<div class="slide" id="slide1"><h1>第二屏幕第一屏</h1></div>
+				<div class="slide" id="slide2"><h1>第二屏幕第二屏</h1></div>
+			</div>
+			<div class="section" id="section2">
+				<h1>第三屏幕</h1>
+			</div>
+			
+		</div>
+		
+		
+	</body>
+</html>
